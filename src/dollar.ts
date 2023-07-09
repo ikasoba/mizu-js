@@ -14,7 +14,7 @@ export function $<
   if (args.length == 2) {
     return condition(args[0], args[1]);
   } else if (typeof args[0] == "string") {
-    return Mizu.querySelector(args[0]);
+    return Mizu.querySelectorAll(args[0]);
   } else {
     return new Mizu([args[0]]);
   }

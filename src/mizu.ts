@@ -1,4 +1,5 @@
 import { State } from "./reactive.js";
+import { wrapArray } from "./type/util.js";
 
 export type EventMap<E extends Element | HTMLElement> = E extends HTMLElement
   ? HTMLElementEventMap
@@ -225,13 +226,26 @@ export class Mizu<
   }
 
   static querySelectorAll(query: string): Mizu {
-    return new Mizu([...document.querySelectorAll(query)]);
+    //prettier-ignore
+    const elements = (/^\s*#[a-zA-Z0-9_-]+\s*$/.test(query))
+            ? wrapArray(document.getElementById(
+                query.replace(/^\s*#([a-zA-Z0-9_-]+)\s*$/, "$1")
+              ))
+            : document.querySelectorAll(query);
+
+    return new Mizu([...elements]);
   }
 
   static querySelector(query: string): Mizu {
-    const e = document.querySelector(query);
-    const content = e ? [e] : [];
-    return new Mizu(content);
+    //prettier-ignore
+    const e = wrapArray(
+      (/^\s*#[a-zA-Z0-9_-]+\s*$/.test(query))
+        ? document.getElementById(
+            query.replace(/^\s*#([a-zA-Z0-9_-]+)\s*$/, "$1")
+          )
+        : document.querySelector(query)
+    );
+    return new Mizu(e);
   }
 
   static createElement(name: string) {
