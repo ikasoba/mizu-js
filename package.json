@@ -1,7 +1,7 @@
 {
   "type": "module",
   "name": "@ikasoba000/mizu-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Front-end framework that is both like jQuery and like react",
   "main": "./src/index.js",
   "exports": {
