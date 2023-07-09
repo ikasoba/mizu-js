@@ -1,0 +1,24 @@
+{
+  "type": "module",
+  "name": "@ikasoba000/mizu-js",
+  "version": "1.0.0",
+  "description": "Front-end framework that is both like jQuery and like react",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./jsx-runtime": "./src/jsx-runtime.js",
+    "./reactive": "./src/reactive.js"
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "watch": "tsc --watch",
+    "prepare": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^5.1.6"
+  }
+}

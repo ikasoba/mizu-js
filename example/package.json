@@ -1,0 +1,19 @@
+{
+  "type": "module",
+  "name": "example",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "esbuild ./index.tsx --jsx=automatic --jsx-import-source=mizu-js --bundle > ./index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.18.11"
+  },
+  "dependencies": {
+    "mizu-js": "link:.."
+  }
+}
